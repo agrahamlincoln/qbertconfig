@@ -1,10 +1,16 @@
 language: python
 python:
-  - "2.7"
-# command to install dependencies
+- '2.7'
 install:
-  - python setup.py install
-  - pip install -r requirements.txt
-# command to run tests
+- pip install -r requirements.txt
+- python setup.py install
+deploy:
+  provider: pypi
+  user: AgrahamLincoln
+  password:
+    secure: Ua1qTMHAE+XRhHiKZXKddrzsyBooLgDh1roEQIlZ8T2HA/9BWSf6IjF3LHKOGkfTKe6WPOx1gqdlEEwEQ3C6v9+l1jIM3gKLw5jGNw64CHqV2hBxfR1WMClh2Zb+rWqij+Xgt0lKbKBMWyN79nzWP0xn9TJcwyzDMXt5151Ny0Kdnzq8098VA/0UL6STUzC5OmuWhRc2WLqavfJEhQBvPbwAEK/MG9b+0qum/sZys2Iq/QrjAQBZdK3/NtN2afn9/ZgvvRzuEy7k5wWKgM18PRk6tsdrYrqeZVDyVmWxMTKLeGHMxB2Z+bJpfih/pT1o0zZGgWcK+8e98VjX3S66ZeijWRyEaaSFbFrSakXJua+Y0SHm5NLdKgADgdLtyaZWpI1LWfq+9qvMcg/fIE7eJnBvb9f6RD8FjRJokRQOgQqmcukfNioh4XYcuo4Ubt2PpFykcxZmAoqUGlYwlupIkieba2ELTinTpUOlOAcGkGh6Ow3EpJ4AiKGIFTwJjXnOkSPH4RMnBFKD88DzekAq2v3rnei6rTDv6c8NdZrX9z2Uoky5OTTqeetFhCPNyIZYbtBSb3lrUSnrC32XSQtzFAqboqP9WRJCMpur7+XS65xGs9ojtWPzpj5hGtxgkGiEUonYlYQJQDUN3Mvbk2PWbTHIHHk/9LBo2nuLTsdr95k=
+  on:
+    branch: master
 script:
-  - nosetests -v -d tests/
+- nosetests -v -d tests/
+if: branch == master

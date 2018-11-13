@@ -14,6 +14,7 @@
 
 import os
 
+import versioneer
 from setuptools import setup, find_packages
 
 def read(fname):
@@ -22,7 +23,8 @@ def read(fname):
 
 setup(
     name='qbertconfig',
-    version='0.1.2',
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     description='Fetches kubeconfigs from qbert API',
     long_description=read('README.rst'),
     url='https://github.com/platform9/qbertconfig',

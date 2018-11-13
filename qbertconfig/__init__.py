@@ -37,3 +37,7 @@ root_logger.addHandler(console_handler)
 root_logger.addHandler(file_handler)
 
 root_logger.setLevel(logging.INFO)
+
+from ._version import get_versions
+__version__ = get_versions()['version']
+del get_versions
